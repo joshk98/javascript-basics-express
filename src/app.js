@@ -1,27 +1,52 @@
 const express = require('express');
 
-const { sayHello, uppercase, lowercase, firstCharacters } = require('./lib/strings');
+const strings = require('./lib/strings');
+const numbers = require('./lib/numbers');
 
 const app = express();
 
 app.get('/strings/hello/:string', (req, res) => {
-  res.json({ result: sayHello(req.params.string) });
+  res.json({ result: strings.sayHello(req.params.string) });
 });
 
 app.get('/strings/upper/:string', (req, res) => {
-  res.json({ result: uppercase(req.params.string) });
+  res.json({ result: strings.uppercase(req.params.string) });
 });
 
 app.get('/strings/lower/:string', (req, res) => {
-  res.json({ result: lowercase(req.params.string) });
+  res.json({ result: strings.lowercase(req.params.string) });
 });
 
 app.get('/strings/first-characters/:string', (req, res) => {
   const str = req.params.string;
   const length = parseInt(req.query.length);
-  const result = isNaN(length) ? firstCharacters(str, 1) : firstCharacters(str, length);
+  const result = isNaN(length)
+    ? strings.firstCharacters(str, 1)
+    : strings.firstCharacters(str, length);
 
   res.json({ result });
+});
+
+app.get('/numbers/add/:a/and/:b', (req, res) => {
+  const a = parseInt(req.params.a);
+  const b = parseInt(req.params.b);
+  if (Number.isNaN(a) || Number.isNaN(b)) {
+    res.status(400).json({ error: 'Parameters must be valid numbers.' });
+  } else {
+    const sum = numbers.add(a, b);
+    res.json({ result: sum });
+  }
+});
+
+app.get('/numbers/subtract/:a/from/:b', (req, res) => {
+  const a = parseInt(req.params.a);
+  const b = parseInt(req.params.b);
+  if (Number.isNaN(a) || Number.isNaN(b)) {
+    res.status(400).json({ error: 'Parameters must be valid numbers.' });
+  } else {
+    const sum = numbers.subtract(b, a);
+    res.json({ result: sum });
+  }
 });
 
 module.exports = app;
