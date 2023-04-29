@@ -33,8 +33,7 @@ app.get('/numbers/add/:a/and/:b', (req, res) => {
   if (Number.isNaN(a) || Number.isNaN(b)) {
     res.status(400).json({ error: 'Parameters must be valid numbers.' });
   } else {
-    const sum = numbers.add(a, b);
-    res.json({ result: sum });
+    res.json({ result: numbers.add(a, b) });
   }
 });
 
@@ -44,8 +43,7 @@ app.get('/numbers/subtract/:a/from/:b', (req, res) => {
   if (Number.isNaN(a) || Number.isNaN(b)) {
     res.status(400).json({ error: 'Parameters must be valid numbers.' });
   } else {
-    const sum = numbers.subtract(b, a);
-    res.json({ result: sum });
+    res.json({ result: numbers.subtract(b, a) });
   }
 });
 
