@@ -23,31 +23,27 @@ app.get('/strings/lower/:string', (req, res) => {
 
 app.get('/strings/first-characters/:string', (req, res) => {
   const { string } = req.params;
-  const length = +req.query.length;
-  const result = Number.isNaN(length)
-    ? strings.firstCharacters(string, 1)
-    : strings.firstCharacters(string, length);
+  const length = +req.query.length || 1;
+  const result = strings.firstCharacters(string, length);
 
   res.status(200).send({ result });
 });
 
 app.get('/numbers/add/:a/and/:b', (req, res) => {
-  const a = +req.params.a;
-  const b = +req.params.b;
-  if (Number.isNaN(a) || Number.isNaN(b)) {
+  const { a, b } = req.params;
+  if (Number.isNaN(+a) || Number.isNaN(+b)) {
     res.status(400).send({ error: 'Parameters must be valid numbers.' });
   } else {
-    res.status(200).send({ result: numbers.add(a, b) });
+    res.status(200).send({ result: numbers.add(+a, +b) });
   }
 });
 
 app.get('/numbers/subtract/:a/from/:b', (req, res) => {
-  const a = +req.params.a;
-  const b = +req.params.b;
-  if (Number.isNaN(a) || Number.isNaN(b)) {
+  const { a, b } = req.params;
+  if (Number.isNaN(+a) || Number.isNaN(+b)) {
     res.status(400).send({ error: 'Parameters must be valid numbers.' });
   } else {
-    res.status(200).send({ result: numbers.subtract(b, a) });
+    res.status(200).send({ result: numbers.subtract(+b, +a) });
   }
 });
 
@@ -135,8 +131,20 @@ app.post('/arrays/to-string', (req, res) => {
 });
 
 app.post('/arrays/append', (req, res) => {
-  const { element, array } = req.body;
-  res.status(200).send({ result: arrays.addToArray(element, array) });
+  const { value, array } = req.body;
+  arrays.addToArray(value, array);
+  res.status(200).send({ result: array });
+});
+
+app.post('/arrays/starts-with-vowel', (req, res) => {
+  const { array } = req.body;
+  res.status(200).send({ result: arrays.elementsStartingWithAVowel(array) });
+});
+
+app.post('/arrays/remove-element', (req, res) => {
+  const { index } = req.query;
+  const { array } = req.body;
+  res.status(200).send({ result: arrays.removeNthElement2(index, array) });
 });
 
 module.exports = app;

@@ -1,24 +1,30 @@
-# JavaScript Basics in Express
+# Express API for JavaScript Basics
 
-## Getting started
+This is an Express API that provides functionality for basic JavaScript concepts such as arrays, booleans, numbers, objects, and strings. The API has been developed to work with the previously written javascript-basics code.
+Getting started
 
-Ensure your Visual Studio Code application is up to date, and that you have the [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) installed and enabled.
+Make sure you have Visual Studio Code installed and updated to the latest version. Also, ensure that you have the ESLint extension installed and enabled.
 
-Run the commands below inside your `Projects` folder.
+## Clone the repository and navigate to the project folder:
 
 ```bash
+
 git clone git@github.com:MCRcodes/javascript-basics-express.git
-cd your-project-folder-name
+cd javascript-basics-express
+
+```
+
+## Install the dependencies:
+
+```bash
+
 npm install
+
 ```
 
 ## Copy over your JavaScript Basics code
 
-:rotating_light: **Important!**
-
-This exercise makes use of your previous `javascript-basics` code. Copy the files from that project's `src/` folder into a new `lib/` directory in this repository's `src` directory. You should end up with the following file structure in this project:
-
-```
+```css
 src
 ├── app.js
 └── lib
@@ -31,8 +37,72 @@ src
 
 ## Running tests
 
-You can run tests with the `npm test` command.
+You can run tests with the command:
 
-## Remember: READMEs are important!
+```bash
 
-When you're finished, be sure to rewrite this one so it's more specific to your project.
+npm test
+
+```
+
+## API Endpoints
+
+### GET /arrays/element-at-index/:index
+
+Returns the element at the specified index of an array.
+
+### POST /arrays/append
+
+Appends a value to an array and returns the resulting array.
+
+### POST /arrays/remove-element
+
+Removes the element at the specified index from an array and returns the resulting array.
+
+### GET /booleans/negate/:value
+
+Returns the negation of a boolean value.
+
+### GET /booleans/truthiness/:value
+
+Returns a string indicating the truthiness of a value.
+
+### GET /numbers/add/:a/and/:b
+
+Adds two numbers and returns the result.
+
+### GET /numbers/power/:base/to-the/:exponent
+
+Raises a base number to a specified exponent and returns the result.
+
+### POST /numbers/round
+
+Rounds a number to a specified number of decimal places and returns the result.
+
+### GET /objects/merge
+
+Merges two objects and returns the resulting object.
+
+### GET /objects/has-property/:property
+
+Returns true if an object has the specified property, false otherwise.
+
+### GET /strings/characters/:string
+
+Returns the number of characters in a string.
+
+### GET /strings/first-character/:string
+
+Returns the first character of a string.
+
+### GET /strings/last-character/:string
+
+Returns the last character of a string.
+
+### GET /strings/character-at-index/:string/:index
+
+Returns the character at a specified index in a string.
+
+### GET /strings/first-characters/:string
+
+Returns the first character of a string, or the first n characters if a length parameter is specified.

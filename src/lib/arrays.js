@@ -18,7 +18,7 @@ const addToArray = (element, array) => {
 };
 
 const addToArray2 = (element, array) => {
-  return [...array, element]
+  return [...array, element];
 };
 
 const removeNthElement = (index, array) => {
@@ -38,7 +38,7 @@ const reverseWordsInArray = strings => {
     stringsReversed
       .split('')
       .reverse()
-      .join('')
+      .join(''),
   );
 };
 
@@ -66,9 +66,7 @@ const sumNumbers = numbers => {
 };
 
 const sortByLastLetter = strings => {
-  return strings.sort((a, b) =>
-    a.charAt(a.length - 1).localeCompare(b.charAt(b.length - 1))
-  );
+  return strings.sort((a, b) => a.charAt(a.length - 1).localeCompare(b.charAt(b.length - 1)));
 };
 
 module.exports = {
@@ -86,5 +84,5 @@ module.exports = {
   elementsStartingWithAVowel,
   removeSpaces,
   sumNumbers,
-  sortByLastLetter
+  sortByLastLetter,
 };
