@@ -45,7 +45,7 @@ npm test
 
 ```
 
-## API Endpoints
+## API Endpoints Examples
 
 ### GET /arrays/element-at-index/:index
 
@@ -70,30 +70,6 @@ Returns a string indicating the truthiness of a value.
 ### GET /numbers/add/:a/and/:b
 
 Adds two numbers and returns the result.
-
-### GET /numbers/power/:base/to-the/:exponent
-
-Raises a base number to a specified exponent and returns the result.
-
-### POST /numbers/round
-
-Rounds a number to a specified number of decimal places and returns the result.
-
-### GET /objects/merge
-
-Merges two objects and returns the resulting object.
-
-### GET /objects/has-property/:property
-
-Returns true if an object has the specified property, false otherwise.
-
-### GET /strings/characters/:string
-
-Returns the number of characters in a string.
-
-### GET /strings/first-character/:string
-
-Returns the first character of a string.
 
 ### GET /strings/last-character/:string
 
