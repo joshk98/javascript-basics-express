@@ -1,5 +1,5 @@
 const createPerson = (name, age) => {
-  return {name, age};
+  return { name, age };
 };
 
 const getName = object => {
@@ -27,23 +27,19 @@ const findByName = (name, people) => {
 };
 
 const findHondas = cars => {
-  return cars.filter(a => a.manufacturer === 'Honda');
+  return cars.filter(car => car.manufacturer === 'Honda');
 };
 
 const averageAge = people => {
-  const sum = people.reduce(
-    (accumulative, current) => accumulative + current.age,
-    0
-  );
-  const avg = sum / people.length;
-  return Math.round(avg);
+  const sum = people.reduce((accumulative, current) => accumulative + current.age, 0);
+  return Math.round(sum / people.length);
 };
 
 const createTalkingPerson = (name, age) => {
   const introduce = otherName => {
     return `Hi ${otherName}, my name is ${name} and I am ${age}!`;
   };
-  return {name, age, introduce};
+  return { name, age, introduce };
 };
 
 module.exports = {
@@ -56,5 +52,5 @@ module.exports = {
   findByName,
   findHondas,
   averageAge,
-  createTalkingPerson
+  createTalkingPerson,
 };

@@ -1,4 +1,4 @@
-const negate = (a) => {
+const negate = a => {
   return !a;
 };
 
@@ -18,7 +18,7 @@ const one = (a, b) => {
   return a !== b;
 };
 
-const truthiness = (a) => {
+const truthiness = a => {
   return Boolean(a);
 };
 
@@ -34,15 +34,15 @@ const isLessThanOrEqualTo = (a, b) => {
   return a <= b;
 };
 
-const isOdd = (a) => {
+const isOdd = a => {
   return a % 2 !== 0;
 };
 
-const isEven = (a) => {
+const isEven = a => {
   return a % 2 === 0;
 };
 
-const isSquare = (a) => {
+const isSquare = a => {
   return Math.sqrt(a) % 1 === 0;
 };
 
@@ -50,12 +50,11 @@ const startsWith = (char, string) => {
   return string.charAt(0) === char;
 };
 
-const containsVowels = (string) => {
-  const vowels = /[aeiou]/i;
-  return vowels.test(string);
+const containsVowels = string => {
+  return /[aeiou]/i.test(string);
 };
 
-const isLowerCase = (string) => {
+const isLowerCase = string => {
   return string === string.toLowerCase();
 };
 
@@ -74,5 +73,5 @@ module.exports = {
   isSquare,
   startsWith,
   containsVowels,
-  isLowerCase
+  isLowerCase,
 };

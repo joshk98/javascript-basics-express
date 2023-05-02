@@ -22,10 +22,7 @@ app.get('/strings/lower/:string', (req, res) => {
 });
 
 app.get('/strings/first-characters/:string', (req, res) => {
-  const { string } = req.params;
-  const length = +req.query.length || 1;
-  const result = strings.firstCharacters(string, length);
-
+  const result = strings.firstCharacters(req.params.string, req.query.length || 1);
   res.status(200).send({ result });
 });
 
@@ -94,13 +91,11 @@ app.post('/numbers/remainder', (req, res) => {
 });
 
 app.post('/booleans/negate', (req, res) => {
-  const { value } = req.body;
-  res.status(200).send({ result: booleans.negate(value) });
+  res.status(200).send({ result: booleans.negate(req.body.value) });
 });
 
 app.post('/booleans/truthiness', (req, res) => {
-  const { value } = req.body;
-  res.status(200).send({ result: booleans.truthiness(value) });
+  res.status(200).send({ result: booleans.truthiness(req.body.value) });
 });
 
 app.get('/booleans/is-odd/:number', (req, res) => {
@@ -113,21 +108,18 @@ app.get('/booleans/is-odd/:number', (req, res) => {
 
 app.get('/booleans/:string/starts-with/:char', (req, res) => {
   const { string, char } = req.params;
-  if (+char.length > 1) {
+  if (char.length > 1) {
     res.status(400).send({ error: 'Parameter "character" must be a single character.' });
   }
   res.status(200).send({ result: booleans.startsWith(char, string) });
 });
 
 app.post('/arrays/element-at-index/:index', (req, res) => {
-  const { index } = req.params;
-  const { array } = req.body;
-  res.status(200).send({ result: arrays.getNthElement(index, array) });
+  res.status(200).send({ result: arrays.getNthElement(req.params.index, req.body.array) });
 });
 
 app.post('/arrays/to-string', (req, res) => {
-  const { array } = req.body;
-  res.status(200).send({ result: arrays.arrayToCSVString(array) });
+  res.status(200).send({ result: arrays.arrayToCSVString(req.body.array) });
 });
 
 app.post('/arrays/append', (req, res) => {
@@ -137,14 +129,11 @@ app.post('/arrays/append', (req, res) => {
 });
 
 app.post('/arrays/starts-with-vowel', (req, res) => {
-  const { array } = req.body;
-  res.status(200).send({ result: arrays.elementsStartingWithAVowel(array) });
+  res.status(200).send({ result: arrays.elementsStartingWithAVowel(req.body.array) });
 });
 
 app.post('/arrays/remove-element', (req, res) => {
-  const { index } = req.query;
-  const { array } = req.body;
-  res.status(200).send({ result: arrays.removeNthElement2(index, array) });
+  res.status(200).send({ result: arrays.removeNthElement2(req.query.index, req.body.array) });
 });
 
 module.exports = app;

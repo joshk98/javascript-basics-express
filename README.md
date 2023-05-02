@@ -1,7 +1,8 @@
 # Express API for JavaScript Basics
 
 This is an Express API that provides functionality for basic JavaScript concepts such as arrays, booleans, numbers, objects, and strings. The API has been developed to work with the previously written javascript-basics code.
-Getting started
+
+## Getting started
 
 Make sure you have Visual Studio Code installed and updated to the latest version. Also, ensure that you have the ESLint extension installed and enabled.
 
