@@ -45,40 +45,52 @@ npm test
 
 ```
 
-## API Endpoints Examples
+## API Endpoints
 
-### GET /arrays/element-at-index/:index
+### Strings
 
-Returns the element at the specified index of an array.
+    GET /strings/hello/:string
 
-### POST /arrays/append
+    GET /strings/upper/:string
 
-Appends a value to an array and returns the resulting array.
+    GET /strings/lower/:string
 
-### POST /arrays/remove-element
+    GET /strings/first-characters/:string
 
-Removes the element at the specified index from an array and returns the resulting array.
+### Numbers
 
-### GET /booleans/negate/:value
+    GET /numbers/add/:a/and/:b
 
-Returns the negation of a boolean value.
+    GET /numbers/subtract/:a/from/:b
 
-### GET /booleans/truthiness/:value
+    POST /numbers/multiply
 
-Returns a string indicating the truthiness of a value.
+    POST /numbers/divide
 
-### GET /numbers/add/:a/and/:b
+    POST /numbers/remainder
 
-Adds two numbers and returns the result.
+### Booleans
 
-### GET /strings/last-character/:string
+    POST /booleans/negate
 
-Returns the last character of a string.
+    POST /booleans/truthiness
 
-### GET /strings/character-at-index/:string/:index
+    GET /booleans/is-odd/:number
 
-Returns the character at a specified index in a string.
+    GET /booleans/:string/starts-with/:char
 
-### GET /strings/first-characters/:string
+### Arrays
 
-Returns the first character of a string, or the first n characters if a length parameter is specified.
+    POST /arrays/element-at-index/:index
+
+    POST /arrays/to-string
+
+    POST /arrays/append
+
+    POST /arrays/starts-with-vowel
+
+    POST /arrays/remove-element
+
+## Error Handling
+
+Errors are returned as JSON objects with an error property containing a descriptive message.
